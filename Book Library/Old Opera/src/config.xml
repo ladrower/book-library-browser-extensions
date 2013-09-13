@@ -1,0 +1,10 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget xmlns="http://www.w3.org/ns/widgets" id="https://addons.opera.com/extensions/details/library/" version="1.2.5" href="https://addons.opera.com/extensions/details/library/">
+  <name>Library</name>
+  <author href="http://vnuki.org">vnuki</author>
+  <icon src="icon_64.png"/>
+  <icon src="icon_18.png"/>
+  <access origin="http://vnuki.org" subdomains="true"/>
+  <update-description href="https://extension-updates.opera.com/api/w3c-wd1/update/f075878b-27cc-4fd7-b560-dc1678f058d0/"/>
+  <description xml:lang="en">Simple search of digital books</description>
+</widget>
