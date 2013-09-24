@@ -128,3 +128,85 @@ An example of the response in case of error in [XML] (http://en.wikipedia.org/wi
 </response>
 ```
 
+=
+### findPage
+
+Method **findPage** returns the URL of the page of a book on vnuki.org site. In case of additional parameter **redirect=1** is specified the API also redirects the client's browser to this page.
+
+Accepts two arguments:
++ **md5** (required) - a sequence of 32 hexadecimal digits which is the [md5 hash] (http://en.wikipedia.org/wiki/Md5#MD5_hashes) of the file of the requested book.
++ **redirect** (optional) - a flag that could be set in *0* or *1*. By default is *0*.
+
+An example of the request:
+
+    books.vnuki.org/method/findPage?md5=095374fa95ff3b2a823e99692c5f18e5
+    
+An example of the response in [JSON] (http://en.wikipedia.org/wiki/JSON) format:
+```json
+{"response":{"url":"http:\/\/vnuki.org\/library\/book\/347363"}}
+```
+An example of the response in [XML] (http://en.wikipedia.org/wiki/XML) format:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <url>http://vnuki.org/library/book/347363</url>
+</response>
+```
+Possible responses in case of error:
++ error_code: **10** ("Wrong MD5 string passed.")
++ error_code: **15** ("Book not found.")
+
+=
+### listPopular
+
+Method **listPopular** returns up to 100 most popular books.  
+
+Accepts two arguments:
++ **format** (optional) - comma separated list of formats to filter. Supported formats: **fb2.zip**, **pdf**, **djvu**, **doc**, **mobi**, **rtf**, **txt**, **zip**, **rar**.
++ **return** (optional) - comma separated list of additional field names that should be returned in results apart **md5** field. Available field names: **title**, **authors**, **description**, **extension**, **filesize**, **imageUrl**. Field **md5** is always returned.
+
+An example of the request:
+
+    books.vnuki.org/method/listPopular?format=pdf,djvu
+    
+=
+### getStatistics
+
+Method **getStatistics** returns statistics on the available books. 
+
+Does not accept arguments.
+
+Returns variables:
++ *total.books* - Total amount of books available for downloading;
++ *total.filesize* - The total weight of the available files in bytes;
++ *md5_hashes_data.csv_file_url* - The link to the [CSV] (http://en.wikipedia.org/wiki/Comma-separated_values) file of the md5 hashes of available books;
++ *md5_hashes_data.last_modified* - The time of last change of the CSV file in seconds elapsed since the Unix Epoch start;
++ *md5_hashes_data.filesize* - The weight of this CSV file in bytes;
++ *books_table_data.sql_file_url* - The link to the [zip-archive] (http://en.wikipedia.org/wiki/ZIP_%28file_format%29) of the [SQL] (http://en.wikipedia.org/wiki/SQL) file with queries the execution of which recreates [MyISAM] (http://en.wikipedia.org/wiki/MyISAM) table *api_vnuki_books* for use on the server side;
++ *books_table_data.last_modified* - The time of last change of compressed SQL file in seconds elapsed since the Unix Epoch start;
++ *books_table_data.filesize* - The weight of this zip-archive in bytes.
+
+An example of the response in [JSON] (http://en.wikipedia.org/wiki/JSON) format:
+```json
+{"response":{"total":{"books":"335376","filesize":"817204333243"},"md5_hashes_data":{"last_modified":1333453171,"csv_file_url":"http:\/\/books.vnuki.org\/data\/md5.csv","filesize":11067407},"books_table_data":{"last_modified":1333463562,"sql_file_url":"http:\/\/books.vnuki.org\/data\/api_books.sql.zip","filesize":70083217}}}
+```
+An example of the response in [XML] (http://en.wikipedia.org/wiki/XML) format:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<response>
+  <total>
+    <books>357215</books>
+    <filesize>1114634724541</filesize>
+  </total>
+  <md5_hashes_data>
+    <last_modified>1348952901</last_modified>
+    <csv_file_url>http://books.vnuki.org/data/md5.csv</csv_file_url>
+    <filesize>11788094</filesize>
+  </md5_hashes_data>
+  <books_table_data>
+    <last_modified>1348474056</last_modified>
+    <sql_file_url>http://books.vnuki.org/data/api_books.sql.zip</sql_file_url>
+    <filesize>77886102</filesize>
+  </books_table_data>
+</response>
+```
