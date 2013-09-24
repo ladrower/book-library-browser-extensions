@@ -304,3 +304,5 @@ Our API based library extensions for popular browsers:
 + [Google Chrome] (https://chrome.google.com/webstore/detail/nkbdabbfpcmlgnpadccpnohdkcpmenen)
 + [Mozilla Firefox] (https://addons.mozilla.org/en-US/firefox/addon/books-library/)
 + [Opera] (https://addons.opera.com/ru/extensions/details/library/)
+
+![library extension - Screenshot](https://lh6.googleusercontent.com/mLkgE4KUKJ2gtGT5DgsXF0BbKf6BP_omE7ZnCRbY5znkGnQ1brZiVP9GJDJwedV0zZC1aQwhJZM=s640-h400-e365-rw "Book Library browser extension screenshot")
