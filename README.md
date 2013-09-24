@@ -210,3 +210,97 @@ An example of the response in [XML] (http://en.wikipedia.org/wiki/XML) format:
   </books_table_data>
 </response>
 ```
+
+## Extra API methods and features
+
+### opds.search
+
+Method **opds.search** generates the feed in format of [OPDS catalog] (http://en.wikipedia.org/wiki/OPDS) using the search string.
+
+Accepts one argument:
++ **query** (required) - URL-encoded search query string.
+
+An example of the request:
+
+    books.vnuki.org/method/opds.search?query=computer+science
+    
+An example of the response:
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog">
+  <id>org.vnuki.books.opds.search.51152aa081758</id>
+  <title>Search Results</title>
+  <icon>http://books.vnuki.org/example/images/favicon.ico</icon>
+  <link type="application/atom+xml;profile=opds-catalog;kind=navigation" href="http://books.vnuki.org/opds.xml" rel="start" title="Home"/>
+  <link type="application/opensearchdescription+xml" href="http://books.vnuki.org/opensearch.xml" rel="search" title="Search for Books"/>
+  <updated>2013-02-08T18:41:04Z</updated>
+  <entry>
+    <title>Computer science - an overview</title>
+    <id>urn:uuid:88359fb4fe6f1706c76f6f8f97a2b4dc</id>
+    <author>
+      <name>J. Glenn Brookshear</name>
+    </author>
+    <content type="text">For over a decade, students and instructors alike have praised the broad coverage and clear exposition in the leading text Computer Science: An Overview. Glenn Brookshear draws on years of success in the classroom in this practical, language-independent approach to the introduction of core computing science topics. This Ninth Edition provides a balanced, realistic picture of the dynamic nature of computer science by presenting the historical background and the most up-to-date research and trends. It engages students with timely topics like bioinformatics and artificial intelligence, and provides coverage of foundational hardware topics like data representation/storage, machine architecture, and machine language.</content>
+    <dc:format>djvu</dc:format>
+    <link type="image/jpeg" rel="http://opds-spec.org/image/thumbnail" href="http://upload.vnuki.org/books/ava/21/209982_f09fe786.jpg"/>
+    <link type="text/html" rel="alternate" title="View in Browser" href="http://books.vnuki.org/method/findPage?md5=88359fb4fe6f1706c76f6f8f97a2b4dc&amp;redirect=1"/>
+    <link type="image/x-djvu" rel="http://opds-spec.org/acquisition/open-access" href="http://books.vnuki.org/method/download?md5=88359fb4fe6f1706c76f6f8f97a2b4dc"/>
+    <updated>2013-02-08T18:41:04Z</updated>
+  </entry>
+  <entry>
+    <title>Computer science handbook</title>
+    <id>urn:uuid:9d615734bfb5e8d9657d68b81068d4d3</id>
+    <author>
+      <name>Tucker A.B. (ed.)</name>
+    </author>
+    <content type="text">The second edition of this elemental handbook reviews the current state of theory and practice in the field while emphasizing a more practical/applied approach to IT topics such as information management, net-centric computing, and human computer interaction. With a complete revision of its sections on software engineering, architecture, and operating systems, this now thoroughly up-to-date manual is as cutting-edge in the new millennium as it was in the nineties. The Computer Science Handbook, Second Edition includes new information on Web-based software, speech recognition, data mining, cryptography, and distributed objects computing as well as references and sources for further information.</content>
+    <dc:format>pdf</dc:format>
+    <link type="image/jpeg" rel="http://opds-spec.org/image/thumbnail" href="http://upload.vnuki.org/books/ava/21/209994_21b4fc74.jpg"/>
+    <link type="text/html" rel="alternate" title="View in Browser" href="http://books.vnuki.org/method/findPage?md5=9d615734bfb5e8d9657d68b81068d4d3&amp;redirect=1"/>
+    <link type="application/pdf" rel="http://opds-spec.org/acquisition/open-access" href="http://books.vnuki.org/method/download?md5=9d615734bfb5e8d9657d68b81068d4d3"/>
+    <updated>2013-02-08T18:41:04Z</updated>
+  </entry>
+  <entry>
+    <title>Handbook of theoretical computer science. Algorithms and complexity</title>
+    <id>urn:uuid:628cec0685e19b3fd807434d152f7081</id>
+    <author>
+      <name>van Leeuwen J. (ed.)</name>
+    </author>
+    <content type="text">This first part presents chapters on models of computation, complexity theory, data structures, and efficient computation in many recognized sub-disciplines of Theoretical Computer Science.</content>
+    <dc:format>djvu</dc:format>
+    <link type="image/jpeg" rel="http://opds-spec.org/image/thumbnail" href="http://upload.vnuki.org/books/ava/21/209998_3733edb8.jpg"/>
+    <link type="text/html" rel="alternate" title="View in Browser" href="http://books.vnuki.org/method/findPage?md5=628cec0685e19b3fd807434d152f7081&amp;redirect=1"/>
+    <link type="image/x-djvu" rel="http://opds-spec.org/acquisition/open-access" href="http://books.vnuki.org/method/download?md5=628cec0685e19b3fd807434d152f7081"/>
+    <updated>2013-02-08T18:41:04Z</updated>
+  </entry>
+</feed>
+```
+
+=
+### opds.listPopular
+
+Method **opds.listPopular** generates the feed in format of [OPDS catalog] (http://en.wikipedia.org/wiki/OPDS) of up to 100 most popular books.
+
+Accepts one argument:
++ **format** (optional) - comma separated list of formats to filter. Supported formats: **fb2.zip**, **pdf**, **djvu**, **doc**, **mobi**, **rtf**, **txt**, **zip**, **rar**.
+
+An example of the request:
+
+    books.vnuki.org/method/opds.listPopular?format=pdf,djvu
+
+=
+### OPDS Catalog
+
+[OPDS catalog] (http://en.wikipedia.org/wiki/OPDS) that currently supports only search functionality - **http://books.vnuki.org/opds.xml**
+
+### OpenSearch
+
+[OpenSearch Description Document] (http://en.wikipedia.org/wiki/OpenSearch) that allows to search for books on books.vnuki.org - **http://books.vnuki.org/opensearch.xml**
+
+### Browser Extensions
+
+Our API based library extensions for popular browsers:
+
++ [Google Chrome] (https://chrome.google.com/webstore/detail/nkbdabbfpcmlgnpadccpnohdkcpmenen)
++ [Mozilla Firefox] (https://addons.mozilla.org/en-US/firefox/addon/books-library/)
++ [Opera] (https://addons.opera.com/ru/extensions/details/library/)
