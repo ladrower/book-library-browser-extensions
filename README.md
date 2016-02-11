@@ -9,9 +9,9 @@
 + Develop a library application for any platform
 
 ### API call format
-To make an API call you should send the [HTTP GET] (http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3) request to the server **books.vnuki.org** in format:
+To make an API call you should send the [HTTP GET] (http://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html#sec9.3) request to the server **api.books.artemplatonov.com** in format:
 
-    books.vnuki.org/method/Method_name?[Parameters_list_as_key=value][&xml=1]
+    api.books.artemplatonov.com/method/Method_name?[Parameters_list_as_key=value][&xml=1]
     
 ## API Methods
 
@@ -25,7 +25,7 @@ Accepts two arguments:
 
 An example of the request:
 
-    books.vnuki.org/method/search?query=thinking+in+java+Eckel
+    api.books.artemplatonov.com/method/search?query=thinking+in+java+Eckel
     
 Will return a similar result:
 ```json
@@ -34,7 +34,7 @@ Will return a similar result:
 
 An example of the request with additional parameters:
 
-     books.vnuki.org/method/search?query=english+grammar&return=title,authors,extension
+     api.books.artemplatonov.com/method/search?query=english+grammar&return=title,authors,extension
      
 An example of the response in [JSON] (http://en.wikipedia.org/wiki/JSON) format:
 ```json
@@ -106,7 +106,7 @@ Accepts one argument:
 
 An example of the request:
 
-    books.vnuki.org/method/download?md5=095374fa95ff3b2a823e99692c5f18e5
+    api.books.artemplatonov.com/method/download?md5=095374fa95ff3b2a823e99692c5f18e5
     
 Possible responses in case of error:
 + error_code: **10** ("Wrong MD5 string passed.")
@@ -139,7 +139,7 @@ Accepts two arguments:
 
 An example of the request:
 
-    books.vnuki.org/method/findPage?md5=095374fa95ff3b2a823e99692c5f18e5
+    api.books.artemplatonov.com/method/findPage?md5=095374fa95ff3b2a823e99692c5f18e5
     
 An example of the response in [JSON] (http://en.wikipedia.org/wiki/JSON) format:
 ```json
@@ -167,7 +167,7 @@ Accepts two arguments:
 
 An example of the request:
 
-    books.vnuki.org/method/listPopular?format=pdf,djvu
+    api.books.artemplatonov.com/method/listPopular?format=pdf,djvu
     
 =
 ### getStatistics
@@ -188,7 +188,7 @@ Returns variables:
 
 An example of the response in [JSON] (http://en.wikipedia.org/wiki/JSON) format:
 ```json
-{"response":{"total":{"books":"335376","filesize":"817204333243"},"md5_hashes_data":{"last_modified":1333453171,"csv_file_url":"http:\/\/books.vnuki.org\/data\/md5.csv","filesize":11067407},"books_table_data":{"last_modified":1333463562,"sql_file_url":"http:\/\/books.vnuki.org\/data\/api_books.sql.zip","filesize":70083217}}}
+{"response":{"total":{"books":"335376","filesize":"817204333243"},"md5_hashes_data":{"last_modified":1333453171,"csv_file_url":"http:\/\/api.books.artemplatonov.com\/data\/md5.csv","filesize":11067407},"books_table_data":{"last_modified":1333463562,"sql_file_url":"http:\/\/api.books.artemplatonov.com\/data\/api_books.sql.zip","filesize":70083217}}}
 ```
 An example of the response in [XML] (http://en.wikipedia.org/wiki/XML) format:
 ```xml
@@ -200,12 +200,12 @@ An example of the response in [XML] (http://en.wikipedia.org/wiki/XML) format:
   </total>
   <md5_hashes_data>
     <last_modified>1348952901</last_modified>
-    <csv_file_url>http://books.vnuki.org/data/md5.csv</csv_file_url>
+    <csv_file_url>http://api.books.artemplatonov.com/data/md5.csv</csv_file_url>
     <filesize>11788094</filesize>
   </md5_hashes_data>
   <books_table_data>
     <last_modified>1348474056</last_modified>
-    <sql_file_url>http://books.vnuki.org/data/api_books.sql.zip</sql_file_url>
+    <sql_file_url>http://api.books.artemplatonov.com/data/api_books.sql.zip</sql_file_url>
     <filesize>77886102</filesize>
   </books_table_data>
 </response>
@@ -222,7 +222,7 @@ Accepts one argument:
 
 An example of the request:
 
-    books.vnuki.org/method/opds.search?query=computer+science
+    api.books.artemplatonov.com/method/opds.search?query=computer+science
     
 An example of the response:
 ```xml
@@ -230,9 +230,9 @@ An example of the response:
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:dc="http://purl.org/dc/terms/" xmlns:os="http://a9.com/-/spec/opensearch/1.1/" xmlns:opds="http://opds-spec.org/2010/catalog">
   <id>org.vnuki.books.opds.search.51152aa081758</id>
   <title>Search Results</title>
-  <icon>http://books.vnuki.org/example/images/favicon.ico</icon>
-  <link type="application/atom+xml;profile=opds-catalog;kind=navigation" href="http://books.vnuki.org/opds.xml" rel="start" title="Home"/>
-  <link type="application/opensearchdescription+xml" href="http://books.vnuki.org/opensearch.xml" rel="search" title="Search for Books"/>
+  <icon>http://api.books.artemplatonov.com/example/images/favicon.ico</icon>
+  <link type="application/atom+xml;profile=opds-catalog;kind=navigation" href="http://api.books.artemplatonov.com/opds.xml" rel="start" title="Home"/>
+  <link type="application/opensearchdescription+xml" href="http://api.books.artemplatonov.com/opensearch.xml" rel="search" title="Search for Books"/>
   <updated>2013-02-08T18:41:04Z</updated>
   <entry>
     <title>Computer science - an overview</title>
@@ -243,8 +243,8 @@ An example of the response:
     <content type="text">For over a decade, students and instructors alike have praised the broad coverage and clear exposition in the leading text Computer Science: An Overview. Glenn Brookshear draws on years of success in the classroom in this practical, language-independent approach to the introduction of core computing science topics. This Ninth Edition provides a balanced, realistic picture of the dynamic nature of computer science by presenting the historical background and the most up-to-date research and trends. It engages students with timely topics like bioinformatics and artificial intelligence, and provides coverage of foundational hardware topics like data representation/storage, machine architecture, and machine language.</content>
     <dc:format>djvu</dc:format>
     <link type="image/jpeg" rel="http://opds-spec.org/image/thumbnail" href="http://upload.vnuki.org/books/ava/21/209982_f09fe786.jpg"/>
-    <link type="text/html" rel="alternate" title="View in Browser" href="http://books.vnuki.org/method/findPage?md5=88359fb4fe6f1706c76f6f8f97a2b4dc&amp;redirect=1"/>
-    <link type="image/x-djvu" rel="http://opds-spec.org/acquisition/open-access" href="http://books.vnuki.org/method/download?md5=88359fb4fe6f1706c76f6f8f97a2b4dc"/>
+    <link type="text/html" rel="alternate" title="View in Browser" href="http://api.books.artemplatonov.com/method/findPage?md5=88359fb4fe6f1706c76f6f8f97a2b4dc&amp;redirect=1"/>
+    <link type="image/x-djvu" rel="http://opds-spec.org/acquisition/open-access" href="http://api.books.artemplatonov.com/method/download?md5=88359fb4fe6f1706c76f6f8f97a2b4dc"/>
     <updated>2013-02-08T18:41:04Z</updated>
   </entry>
   <entry>
@@ -256,8 +256,8 @@ An example of the response:
     <content type="text">The second edition of this elemental handbook reviews the current state of theory and practice in the field while emphasizing a more practical/applied approach to IT topics such as information management, net-centric computing, and human computer interaction. With a complete revision of its sections on software engineering, architecture, and operating systems, this now thoroughly up-to-date manual is as cutting-edge in the new millennium as it was in the nineties. The Computer Science Handbook, Second Edition includes new information on Web-based software, speech recognition, data mining, cryptography, and distributed objects computing as well as references and sources for further information.</content>
     <dc:format>pdf</dc:format>
     <link type="image/jpeg" rel="http://opds-spec.org/image/thumbnail" href="http://upload.vnuki.org/books/ava/21/209994_21b4fc74.jpg"/>
-    <link type="text/html" rel="alternate" title="View in Browser" href="http://books.vnuki.org/method/findPage?md5=9d615734bfb5e8d9657d68b81068d4d3&amp;redirect=1"/>
-    <link type="application/pdf" rel="http://opds-spec.org/acquisition/open-access" href="http://books.vnuki.org/method/download?md5=9d615734bfb5e8d9657d68b81068d4d3"/>
+    <link type="text/html" rel="alternate" title="View in Browser" href="http://api.books.artemplatonov.com/method/findPage?md5=9d615734bfb5e8d9657d68b81068d4d3&amp;redirect=1"/>
+    <link type="application/pdf" rel="http://opds-spec.org/acquisition/open-access" href="http://api.books.artemplatonov.com/method/download?md5=9d615734bfb5e8d9657d68b81068d4d3"/>
     <updated>2013-02-08T18:41:04Z</updated>
   </entry>
   <entry>
@@ -269,8 +269,8 @@ An example of the response:
     <content type="text">This first part presents chapters on models of computation, complexity theory, data structures, and efficient computation in many recognized sub-disciplines of Theoretical Computer Science.</content>
     <dc:format>djvu</dc:format>
     <link type="image/jpeg" rel="http://opds-spec.org/image/thumbnail" href="http://upload.vnuki.org/books/ava/21/209998_3733edb8.jpg"/>
-    <link type="text/html" rel="alternate" title="View in Browser" href="http://books.vnuki.org/method/findPage?md5=628cec0685e19b3fd807434d152f7081&amp;redirect=1"/>
-    <link type="image/x-djvu" rel="http://opds-spec.org/acquisition/open-access" href="http://books.vnuki.org/method/download?md5=628cec0685e19b3fd807434d152f7081"/>
+    <link type="text/html" rel="alternate" title="View in Browser" href="http://api.books.artemplatonov.com/method/findPage?md5=628cec0685e19b3fd807434d152f7081&amp;redirect=1"/>
+    <link type="image/x-djvu" rel="http://opds-spec.org/acquisition/open-access" href="http://api.books.artemplatonov.com/method/download?md5=628cec0685e19b3fd807434d152f7081"/>
     <updated>2013-02-08T18:41:04Z</updated>
   </entry>
 </feed>
@@ -286,16 +286,16 @@ Accepts one argument:
 
 An example of the request:
 
-    books.vnuki.org/method/opds.listPopular?format=pdf,djvu
+    api.books.artemplatonov.com/method/opds.listPopular?format=pdf,djvu
 
 =
 ### OPDS Catalog
 
-[OPDS catalog] (http://en.wikipedia.org/wiki/OPDS) that currently supports only search functionality - **http://books.vnuki.org/opds.xml**
+[OPDS catalog] (http://en.wikipedia.org/wiki/OPDS) that currently supports only search functionality - **http://api.books.artemplatonov.com/opds.xml**
 
 ### OpenSearch
 
-[OpenSearch Description Document] (http://en.wikipedia.org/wiki/OpenSearch) that allows to search for books on books.vnuki.org - **http://books.vnuki.org/opensearch.xml**
+[OpenSearch Description Document] (http://en.wikipedia.org/wiki/OpenSearch) that allows to search for books on api.books.artemplatonov.com - **http://api.books.artemplatonov.com/opensearch.xml**
 
 ### Browser Extensions
 
